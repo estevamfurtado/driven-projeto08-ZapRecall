@@ -29,9 +29,8 @@ body {
 }
 
 .home, .game {
-    width: 50%;
+    width: 100%;
     height: 100%;
-    border: 1px solid var(--system-black);
 }
 
 .home {
@@ -235,4 +234,12 @@ body {
 .game__footer__results {
     display: flex;
     gap: 5px;
+}
+
+.game__footer__restart {
+    background-color: var(--system-bg-color);
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
 }

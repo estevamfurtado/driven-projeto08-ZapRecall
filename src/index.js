@@ -4,7 +4,7 @@ import App from './components/App';
 
 
 const decks = [
-    {title: "Deck 1", flashcards: [
+    {title: "React", flashcards: [
         {question: "O que é JSX?", answer: "Uma extensão de linguagem do JavaScript"},
         {question: "O React é __", answer: "uma biblioteca JavaScript para construção de interfaces"},
         {question: "Componentes devem iniciar com __", answer: "letra maiúscula"},
@@ -14,11 +14,11 @@ const decks = [
         {question: "Usamos props para __", answer: "passar diferentes informações para componentes"} ,
         {question: "Usamos estado (state) para __", answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}
     ]},
-    {title: "Deck 2", flashcards: [
-        {question: "O que é JSX?", answer: "Uma extensão de linguagem do JavaScript"},
-        {question: "O React é __", answer: "uma biblioteca JavaScript para construção de interfaces"},
-        {question: "Componentes devem iniciar com __", answer: "letra maiúscula"},
-        {question: "Usamos estado (state) para __", answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}
+    {title: "Os Discípulos", flashcards: [
+        {question: "O discípulo mandou era __", answer: "Pedro"} ,
+        {question: "O discípulo inteligente foi __", answer: "Paulo"} ,
+        {question: "Esse cara traiu Jesus: __", answer: "Judas"} ,
+        
     ]}
 ]
 

@@ -4,8 +4,16 @@ import React, {useState} from 'react';
 
 export default function App(props) {
 
-    function newGame(deckIndex, numOfQuestions) {
+    function newGameAnchor (deckIndex, numOfQuestions) {
+        setGameFlashcards(newGame(deckIndex, numOfQuestions));
+        setStartGame(true);
+    }
 
+    function backToHome() {
+        setStartGame(false);
+    }
+
+    function newGame(deckIndex, numOfQuestions) {
         let gameFlashcards = shuffle([...props.decks[deckIndex].flashcards]);
         if (numOfQuestions < gameFlashcards.length) {
             gameFlashcards = gameFlashcards.slice(0, numOfQuestions);
@@ -14,11 +22,15 @@ export default function App(props) {
     }
 
     const [gameFlashcards, setGameFlashcards] = useState(newGame(0, 8));
+    const [startGame, setStartGame] = useState(false);
+
+
 
     return (
         <>
-            <Home decks={props.decks} />
-            <Game flashcards={gameFlashcards}/>
+        {startGame
+        ? <Game backToHome={backToHome} flashcards={gameFlashcards}/>
+        : <Home parentAnchor={newGameAnchor} decks={props.decks} />}
         </>
     )
 }

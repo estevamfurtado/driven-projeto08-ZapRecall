@@ -2,14 +2,19 @@ import React, {useState} from 'react';
 
 export default function Flashcard(props) {
 
-    const [canPlay, setCanPlay] = useState(props.isClickable);
+    const [canPlay, setCanPlay] = useState(checkIfCanPlay());
     const [showCover, setShowCover] = useState(true);
     const [showQuestion, setShowQuestion] = useState(true);
-    const [theAnswerIs, setTheAnswerIs] = useState(props.answerIs);
-    const [image, setImage] = useState(getImage(props.asnwerIs));
-    const [flashcardCoverClass, setFlashcardCoverClass] = useState(getFlashcardCoverClass(props.asnwerIs));
+    const [image, setImage] = useState(getImage(props.answerIs));
+    const [flashcardCoverClass, setFlashcardCoverClass] = useState(getFlashcardCoverClass(props.answerIs));
+
+    function checkIfCanPlay () {
+        if (props.answerIs === false) {return true;}
+        else {return false;}
+    }
 
     function getImage(theAnswerIs) {
+        console.log(theAnswerIs);
         if (theAnswerIs) {
             return theAnswerIs;
         }
@@ -28,10 +33,11 @@ export default function Flashcard(props) {
     }
 
     function answer(flashbackAnswer) {
-        setTheAnswerIs(flashbackAnswer);
         setImage(getImage(flashbackAnswer));
         setFlashcardCoverClass(getFlashcardCoverClass(flashbackAnswer));
         setShowCover(true);
+
+        props.fatherAnchor(props.index, flashbackAnswer);
     }
 
     const cover = (

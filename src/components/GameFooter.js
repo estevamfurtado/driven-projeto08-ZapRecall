@@ -23,8 +23,14 @@ export default function GameFooter(props) {
         <p className="game__footer__text">Ainda faltaram alguns... Mas não desanime!</p></>);
     
     const playing = (<>
-        <div className="game__footer__text">{props.results.length + "/" + props.totalFlashcards}</div>
+        <div className="game__footer__text">{props.results.length + "/" + props.totalFlashcards + " CONCLUÍDOS"}</div>
     </>);
+
+    const restartButton = (<button className="game__footer__restart" onClick={
+        () => {
+            props.backToHome();
+        }
+    }>REINICIAR RECALL</button>)
 
     return (
         <div className="game__footer">
@@ -36,5 +42,8 @@ export default function GameFooter(props) {
                     return (<img key={idx} src={`./assets/${result}.png`} alt={result}></img>)
                 })}
             </div>
+
+            {gameIsFinished ? (restartButton) : (<></>)}
+
         </div>)
 }

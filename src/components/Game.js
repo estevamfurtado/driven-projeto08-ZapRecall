@@ -4,9 +4,31 @@ import React, {useState} from 'react';
 
 export default function Game(props) {
 
-    console.log('game el!', props.flashcards)
+    const [results, setResults] = useState([]);
+    const [flashcardsPlayed, setFlashcardsPlayed] = useState([]);
 
-    const [results, changeResults] = useState([]);
+    function addFlashcardResult(flashcardId, result) {
+        
+        console.log(flashcardId, result);
+
+        const newResult = [...results];
+        newResult.push(result);
+        const newFlashcardsPlayed = [...flashcardsPlayed]
+        newFlashcardsPlayed.push(flashcardId);
+
+        setResults(newResult);
+        setFlashcardsPlayed(newFlashcardsPlayed);
+    }
+
+    function checkAnswer(flashcardIndex) {
+        let resposta = false;
+        flashcardsPlayed.forEach((playedId, idx) => {
+            if (playedId === flashcardIndex) {
+                resposta = results[idx];
+            }
+        })
+        return resposta;
+    }
 
     return (<div className="game">
 
@@ -19,11 +41,16 @@ export default function Game(props) {
 
             <div className="game__flashcards">
                 {props.flashcards.map((flashcard, idx) => {
-                    return <Flashcard key={idx} index={idx} flashcard={flashcard} answerIs={"wrong"} isClickable={true} />
+                    return (<Flashcard
+                        fatherAnchor={addFlashcardResult}
+                        key={idx} index={idx}
+                        flashcard={flashcard}
+                        answerIs={checkAnswer(idx)}
+                        />)
                 })}
             </div>
             
         </div>
-        <GameFooter results={["right", "right", "right", "right", "question", "right", "right", "question"]} totalFlashcards={props.flashcards.length}/>
+        <GameFooter backToHome={props.backToHome} results={results} totalFlashcards={props.flashcards.length}/>
     </div>)
 }
