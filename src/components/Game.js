@@ -2,15 +2,13 @@ import Flashcard from './Flashcard';
 import GameFooter from './GameFooter';
 import React, {useState} from 'react';
 
-export default function Game(props) {
+export default function Game({backToHome, flashcards, target}) {
 
     const [results, setResults] = useState([]);
     const [flashcardsPlayed, setFlashcardsPlayed] = useState([]);
 
     function addFlashcardResult(flashcardId, result) {
         
-        console.log(flashcardId, result);
-
         const newResult = [...results];
         newResult.push(result);
         const newFlashcardsPlayed = [...flashcardsPlayed]
@@ -40,7 +38,7 @@ export default function Game(props) {
             </div>
 
             <div className="game__flashcards">
-                {props.flashcards.map((flashcard, idx) => {
+                {flashcards.map((flashcard, idx) => {
                     return (<Flashcard
                         fatherAnchor={addFlashcardResult}
                         key={idx} index={idx}
@@ -51,6 +49,6 @@ export default function Game(props) {
             </div>
             
         </div>
-        <GameFooter backToHome={props.backToHome} results={results} totalFlashcards={props.flashcards.length}/>
+        <GameFooter backToHome={backToHome} results={results} totalFlashcards={flashcards.length} target={target}/>
     </div>)
 }

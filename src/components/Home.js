@@ -37,6 +37,6 @@ export default function Home(props) {
 
         <button className="home__start" disabled={!canStartGame} onClick={() => {
             props.parentAnchor(selectedDeck, numOfQuestions);
-        }}>Iniciar Recal!!!</button>
+        }}>Iniciar Recal!</button>
     </div>)
 }

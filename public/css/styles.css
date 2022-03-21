@@ -48,15 +48,19 @@ body {
     justify-content: center;
     padding: 20px 0;
     flex: 0 0 auto;
-    font-size: 35px;
+    font-size: 36px;
+    font-weight: 400;
     color: white;
     font-family: 'Righteous';
+}
+.home__logo > img {
+    margin-bottom: 24px;
 }
 
 .home__options {
     margin: 30px 0px;
     width: 100%;
-    max-width: 200px;
+    max-width: 240px;
     font-size: 16px;
     display: flex;
     flex-direction: column;
@@ -66,8 +70,9 @@ body {
 .home__option {
     padding: 6px;
     width: 100%;
-    max-width: 200px;
-    font-size: 16px;
+    max-width: 240px;
+    height: 45px;
+    font-size: 14px;
     background-color: white;
     border-radius: 5px;
     color: var(--system-red);
@@ -79,7 +84,8 @@ body {
 .home__start {
     padding: 10px;
     width: 100%;
-    max-width: 200px;
+    max-width: 240px;
+    height: 55px;
     font-family: 'Recursive';
     font-size: 16px;
     background-color: white;
@@ -140,8 +146,10 @@ body {
     width: 100%;
     max-width: 340px;
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     display: flex;
+    box-shadow: 0px 4px 5px 0px #00000026;
+    cursor: pointer;
 }
 
 .cover {
@@ -150,8 +158,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 20px 15px;
     border-radius: 5px;
+}
+.cover:hover {
+    background-color: rgb(238, 238, 238);
 }
 .cover--answered {
     text-decoration: line-through;
@@ -173,7 +184,6 @@ body {
     justify-content: space-between;
     padding: 5px;
     min-height: 80px;
-    margin-bottom: 10px;
     border-radius: 5px;
 }
 
@@ -195,6 +205,7 @@ body {
     border-radius: 5px;
     font-size: 10px;
     color: white;
+    cursor: pointer;
 }
 .activeFlashcard__footer__button--right {
     background-color: var(--question-green);
